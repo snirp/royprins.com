@@ -1,13 +1,22 @@
 module.exports = {
   plugins: [
+    `gatsby-plugin-emotion`,
+    `gatsby-transformer-remark`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
     {
-      resolve: 'gatsby-source-filesystem',
+      resolve: `gatsby-source-filesystem`,
       options: {
-        name: 'src',
-        path: `${__dirname}/src/`,
+        path: `${__dirname}/src/data/posts`,
+        name: `posts`,
       },
     },
-    'gatsby-transformer-remark',
-    `gatsby-plugin-emotion`,
-  ]
-}
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src/data/projects`,
+        name: 'projects',
+      },
+    },
+  ],
+};

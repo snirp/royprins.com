@@ -1,5 +1,6 @@
 ---
 title: Post one is here
+published: true
 date: '2019-01-16'
 ---
 Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 

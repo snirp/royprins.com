@@ -1,5 +1,6 @@
 ---
 title: And this is post number two
+published: true
 date: '2019-01-18'
 ---
 Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
