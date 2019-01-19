@@ -1,7 +1,8 @@
 import React from 'react';
 import Layout from '../components/layout';
+import { Link, graphql } from 'gatsby';
 
-export default () => (
+export default ({ data }) => (
   <Layout>
     <h1>This is hi</h1>
     <p>Welcome to my website</p>
@@ -16,10 +17,11 @@ export default () => (
     <segment id="projects">
       <h2>Projects</h2>
       <ul>
-        <li>Project 1</li>
-        <li>Project 2</li>
-        <li>Project 3</li>
-        <li>Project 4</li>
+        {data.projects.edges.map(({ node }) => (
+          <li key={node.id}>
+            <Link to={node.fields.slug}>{node.frontmatter.name}</Link>
+          </li>
+        ))}
       </ul>
       <a href="#">MORE</a>
     </segment>
@@ -37,12 +39,55 @@ export default () => (
     <segment id="blog">
       <h2>Blog posts</h2>
       <ul>
-        <li>Post 1</li>
-        <li>Post 2</li>
-        <li>Post 3</li>
+        {data.posts.edges.map(({ node }) => (
+          <li key={node.id}>
+            <Link to={node.fields.slug}>{node.frontmatter.title}  — {node.frontmatter.date}</Link>
+          </li>
+        ))}
       </ul>
       <a href="#">MORE</a>
     </segment>
 
   </Layout>
 );
+
+export const query = graphql`
+  query {
+    posts: allMarkdownRemark(
+      filter: {fields: {source: {eq: "posts"}}, frontmatter: {published: {eq: true}}}
+      sort: { order: DESC, fields: frontmatter___published }
+    ) {
+      totalCount
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+            date(formatString: "DD MMMM, YYYY")
+          }
+          fields {
+            slug
+          }
+          excerpt
+        }
+      }
+    }
+    projects: allMarkdownRemark(
+      filter: {fields: {source: {eq: "projects"}} }
+      sort: { order: ASC, fields: frontmatter___sort }
+    ) {
+      totalCount
+      edges {
+        node {
+          id
+          frontmatter {
+            name
+          }
+          fields {
+            slug
+          }
+        }
+      }
+    }
+  }
+`;
