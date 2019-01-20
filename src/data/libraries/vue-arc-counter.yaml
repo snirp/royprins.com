@@ -1,4 +1,10 @@
 name: Vue Arc Counter
-description: Description here
+npmID: vue-arc-counter
+creationDate: '2019-01-13'  # Quoted string, not date object
+description: >
+  Vue Arc Counter is a VueJS component to create a 
+  counter or progress bar on a circular arc.
 language: Javascript
 repository: https://github.com/snirp/vue-arc-counter
+samples: https://codepen.io/snirp/pen/BvvoOB
+documentation: https://github.com/snirp/vue-arc-counter#readme

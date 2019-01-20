@@ -13,7 +13,6 @@ export default ({ data }) => (
       <h2>About me</h2>
       <p>Lorem ipsum and such</p>
     </section>
-    <Library npmID="vue-polar" />
 
     <section id="projects">
       <h2>Projects</h2>
@@ -32,9 +31,7 @@ export default ({ data }) => (
       <p>Open source stuff for the general good.</p>
       <ul>
         {data.libraries.edges.map(({ node }) => (
-          <li key={node.id}>
-            {node.name}
-          </li>
+          <Library key={node.id} {...node} />
         ))}
       </ul>
     </section>
@@ -59,8 +56,15 @@ export const query = graphql`
     libraries: allLibrariesYaml{
       edges{
         node{
-          description
+          id
           name
+          npmID
+          creationDate
+          description
+          language
+          repository
+          samples
+          documentation
         }
       }
     }
