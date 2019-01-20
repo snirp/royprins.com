@@ -1,5 +1,6 @@
 import React from 'react';
 import Layout from '../components/layout';
+import Library from '../components/library';
 import { Link, graphql } from 'gatsby';
 
 export default ({ data }) => (
@@ -8,13 +9,13 @@ export default ({ data }) => (
     <p>Welcome to my website</p>
     <button>Contact me</button>
 
-    <segment id="about">
+    <section id="about">
       <h2>About me</h2>
       <p>Lorem ipsum and such</p>
-      
-    </segment>
+    </section>
+    <Library npmID="vue-polar" />
 
-    <segment id="projects">
+    <section id="projects">
       <h2>Projects</h2>
       <ul>
         {data.projects.edges.map(({ node }) => (
@@ -24,9 +25,9 @@ export default ({ data }) => (
         ))}
       </ul>
       <a href="#">MORE</a>
-    </segment>
+    </section>
 
-    <segment id="libaries">
+    <section id="libaries">
       <h2>Libraries</h2>
       <p>Open source stuff for the general good.</p>
       <ul>
@@ -36,9 +37,9 @@ export default ({ data }) => (
           </li>
         ))}
       </ul>
-    </segment>
+    </section>
 
-    <segment id="blog">
+    <section id="blog">
       <h2>Blog posts</h2>
       <ul>
         {data.posts.edges.map(({ node }) => (
@@ -48,7 +49,7 @@ export default ({ data }) => (
         ))}
       </ul>
       <a href="#">MORE</a>
-    </segment>
+    </section>
 
   </Layout>
 );
