@@ -30,9 +30,11 @@ export default ({ data }) => (
       <h2>Libraries</h2>
       <p>Open source stuff for the general good.</p>
       <ul>
-        <li>Lib 1</li>
-        <li>Lib 2</li>
-        <li>Lib 3</li>
+        {data.libraries.edges.map(({ node }) => (
+          <li key={node.id}>
+            {node.name}
+          </li>
+        ))}
       </ul>
     </segment>
 
@@ -53,6 +55,14 @@ export default ({ data }) => (
 
 export const query = graphql`
   query {
+    libraries: allLibrariesYaml{
+      edges{
+        node{
+          description
+          name
+        }
+      }
+    }
     posts: allMarkdownRemark(
       filter: {fields: {source: {eq: "posts"}}, frontmatter: {published: {eq: true}}}
       sort: { order: DESC, fields: frontmatter___published }

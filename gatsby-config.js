@@ -1,9 +1,15 @@
 module.exports = {
   plugins: [
     'gatsby-plugin-emotion',
-    'gatsby-transformer-remark',
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/src/data/libraries`,
+        name: 'yaml'
+      }
+    },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -17,6 +23,23 @@ module.exports = {
         path: `${__dirname}/src/data/projects`,
         name: 'projects'
       }
-    }
+    },
+    'gatsby-transformer-yaml',
+    {
+      resolve: 'gatsby-transformer-remark',
+      options: {
+        plugins: [
+          {
+            resolve: 'gatsby-remark-images',
+            options: {
+              maxWidth: 590,
+            },
+          },
+          'gatsby-remark-prismjs',
+          'gatsby-remark-copy-linked-files',
+          'gatsby-remark-smartypants',
+        ],
+      },
+    },
   ]
 };

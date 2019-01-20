@@ -3,7 +3,7 @@ title: Post one is here
 published: true
 date: '2019-01-16'
 ---
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis "parturient" montes, nascetur ridiculus mus. 
 
 ![example](example.png)
 
@@ -19,12 +19,18 @@ Sed fringilla mauris sit amet nibh. [Donec sodales sagittis magna.](http://examp
 
 ### In ac dui quis mi consectetuer lacinia.
 
-```
-Nam pretium turpis et arcu. 
-Duis arcu tortor, suscipit eget, imperdiet nec, imperdiet iaculis, ipsum. 
-Sed aliquam ultrices mauris. Integer ante arcu, accumsan a, consectetuer eget, posuere ut, mauris. Praesent adipiscing. 
-
-Phasellus ullamcorper ipsum rutrum nunc. Nunc nonummy metus. 
+```javascript
+// In your gatsby-config.js
+plugins: [
+  {
+    resolve: `gatsby-transformer-remark`,
+    options: {
+      plugins: [
+        `gatsby-remark-prismjs`,
+      ]
+    }
+  }
+]
 ```
 Vestibulum volutpat pretium libero. Cras id dui. Aenean ut eros et nisl sagittis vestibulum. Nullam nulla eros, ultricies sit amet, nonummy id, imperdiet feugiat, pede. Sed lectus. Donec mollis hendrerit risus. Phasellus nec sem in justo pellentesque facilisis. `Etiam imperdiet imperdiet orci.` 
 
