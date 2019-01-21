@@ -1,6 +1,6 @@
 name: Vue Arc Counter
 npmID: vue-arc-counter
-creationDate: '2019-01-13'  # Quoted string, not date object
+creationDate: '2019-01-12'  # Quoted string, not date object
 description: >
   Vue Arc Counter is a VueJS component to create a 
   counter or progress bar on a circular arc.

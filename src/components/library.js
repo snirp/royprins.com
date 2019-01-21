@@ -1,30 +1,54 @@
 import React from 'react';
 import axios from 'axios';
+import {Line} from 'react-chartjs-2';
 
 export default class Library extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {downloads: []};
+    this.state = {
+      labels: [],
+      downloads: []
+    };
   }
 
   componentDidMount() {
     const today = new Date().toISOString().slice(0,10);
     axios.get(`https://api.npmjs.org/downloads/range/${this.props.creationDate}:${today}/${this.props.npmID}`)
       .then(res => {
-        this.setState({ downloads: res.data.downloads });
+        this.setState({ labels: res.data.downloads.map(download => download.day) });
+        this.setState({ downloads: res.data.downloads.map(download => download.downloads) });
       });
   }
 
   render() {
     return (
-      <li>
+      <div>
         {this.props.name} - {this.props.creationDate}
-        <ul>
-          {this.state.downloads.map(download =>
-            <li key={download.day}>{download.downloads}</li>
-          )}
-        </ul>
-      </li>
+        <Line
+          options={{
+            legend: {
+              display: false
+            },
+            scales: {
+              yAxes: [{
+                display: false
+              }],
+              xAxes: [{
+                display: false
+              }]
+            }
+          }}
+          data={{
+            labels: this.state.labels,
+            datasets: [
+              {
+                label: 'downloads',
+                data: this.state.downloads.reduce((a, x, i) => [...a, x + (a[i-1] || 0)], []),
+              }
+            ]
+          }}
+        />
+      </div>
     );
   }
 }

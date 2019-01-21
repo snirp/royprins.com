@@ -1,7 +1,10 @@
 import React from 'react';
+import Carousel from 'nuka-carousel';
+import { Link, graphql } from 'gatsby';
+
 import Layout from '../components/layout';
 import Library from '../components/library';
-import { Link, graphql } from 'gatsby';
+
 
 export default ({ data }) => (
   <Layout>
@@ -29,12 +32,13 @@ export default ({ data }) => (
     <section id="libaries">
       <h2>Libraries</h2>
       <p>Open source stuff for the general good.</p>
-      <ul>
+      <Carousel heightMode="current">
         {data.libraries.edges.map(({ node }) => (
           <Library key={node.id} {...node} />
         ))}
-      </ul>
+      </Carousel>
     </section>
+    
 
     <section id="blog">
       <h2>Blog posts</h2>
