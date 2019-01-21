@@ -13,17 +13,20 @@ export default class Library extends React.Component {
 
   componentDidMount() {
     const today = new Date().toISOString().slice(0,10);
+    { this.props.npmID &&
     axios.get(`https://api.npmjs.org/downloads/range/${this.props.creationDate}:${today}/${this.props.npmID}`)
       .then(res => {
         this.setState({ labels: res.data.downloads.map(download => download.day) });
         this.setState({ downloads: res.data.downloads.map(download => download.downloads) });
       });
+    }
   }
 
   render() {
     return (
       <div>
         {this.props.name} - {this.props.creationDate}
+        { this.props.npmID &&
         <Line
           options={{
             legend: {
@@ -48,6 +51,7 @@ export default class Library extends React.Component {
             ]
           }}
         />
+        }
       </div>
     );
   }

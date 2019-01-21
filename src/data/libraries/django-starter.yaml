@@ -1,0 +1,7 @@
+name: Django starter templates
+creationDate: '2019-12-18'  # Quoted string, not date object
+description: >
+  Starter template with a custom user model.
+language: Python
+repository: https://github.com/snirp/django-starter
+documentation: https://github.com/snirp/django-starter#readme
