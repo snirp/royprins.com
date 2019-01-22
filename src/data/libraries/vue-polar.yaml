@@ -1,6 +1,6 @@
 name: Vue Polar
 npmID: vue-polar
-creationDate: '2019-01-06'  # Quoted string, not date object
+creationDate: 2019-01-06
 description: >
   Vue Polar is a functional VueJS component to easily create 
   circular and spiral layouts.

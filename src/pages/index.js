@@ -10,7 +10,7 @@ export default ({ data }) => (
   <Layout>
     <h1>This is hi</h1>
     <p>Welcome to my website</p>
-    <button>Contact me</button>
+    <a href="">Contact me</a>
 
     <section id="about">
       <h2>About me</h2>
@@ -32,11 +32,11 @@ export default ({ data }) => (
     <section id="libaries">
       <h2>Libraries</h2>
       <p>Open source stuff for the general good.</p>
-      <Carousel heightMode="current">
+      {/* <Carousel heightMode="current"> */}
         {data.libraries.edges.map(({ node }) => (
           <Library key={node.id} {...node} />
         ))}
-      </Carousel>
+      {/* </Carousel> */}
     </section>
     
 
