@@ -10,7 +10,7 @@ const cssContainer = css`
 
 export default ({ children }) => (
   <div css={cssContainer}>
-    <h1>Title</h1>
+    <p>menu</p>
     { children }
   </div>
 );

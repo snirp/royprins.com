@@ -16,7 +16,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       createNodeField({
         node,
         name: 'slug',
-        value: `/blog/${path.parse(fileNode.absolutePath).dir.split('_').pop()}/`
+        value: `/blog/${path.parse(fileNode.absolutePath).dir.split('___').pop()}/`
       });
       // Make filesystem source available to MarkdownRemark nodes
       createNodeField({
