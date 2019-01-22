@@ -1,7 +1,7 @@
 ---
 title: “this” is somewhat confusing in javascript
 published: true
-date: 2019-01-18
+date: 2018-10-17
 skills:
   - this
   - nodejs
