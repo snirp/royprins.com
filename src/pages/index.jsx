@@ -2,8 +2,8 @@ import React from 'react';
 import Carousel from 'nuka-carousel';
 import { Link, graphql } from 'gatsby';
 
-import Layout from '../components/layout';
-import Library from '../components/library';
+import Layout from '../components/Layout';
+import Library from '../components/Library';
 
 
 export default ({ data }) => (

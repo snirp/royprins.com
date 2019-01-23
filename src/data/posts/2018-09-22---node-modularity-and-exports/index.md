@@ -2,7 +2,7 @@
 title: Node modularity and exports
 published: true
 date: 2018-09-22
-skills:
+tags:
   - nodejs
   - javascript
 ---

@@ -1,5 +1,5 @@
 import React from 'react';
-import DownloadChart from './downloads-chart';
+import DownloadChart from './DownloadChart';
 
 export default class Library extends React.Component {
   render() {

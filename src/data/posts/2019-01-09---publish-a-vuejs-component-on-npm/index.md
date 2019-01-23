@@ -2,8 +2,8 @@
 title: Publish a VueJS component on NPM (it’s not scary)
 date: 2019-01-09
 published: true
-skills:
-  - vue
+tags:
+  - vuejs
   - git
   - npm
 ---

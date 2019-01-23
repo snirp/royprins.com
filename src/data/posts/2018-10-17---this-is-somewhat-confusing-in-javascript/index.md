@@ -2,8 +2,8 @@
 title: “this” is somewhat confusing in javascript
 published: true
 date: 2018-10-17
-skills:
-  - this
+tags:
+  - javascript
   - nodejs
 ---
 The use of the `this` keyword is a frequent source of confusion in the javascript community. This post seeks to demystify this methodically and with clear examples. A lot revolves around *context* and *scope*, but these concepts will be explained where necessary (if you already have a solid understanding of scope and context, you would probably not be confused in the first place).

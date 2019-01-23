@@ -3,12 +3,12 @@ title: Get started with Vue web components
 date: 2018-11-21
 published: true
 tags:
-  - vue
+  - vuejs
   - javascript
   - web components
   - webpack
   - html
-  - node
+  - nodejs
 ---
 I found the official documentation somewhat wanting, so here is a short guide to building web-components with Vue. It’s actually pretty easy to set up your environment correctly using Vue CLI 3.
 

@@ -10,13 +10,13 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       // Provide string for regex constructor
       createNodeField({
         node,
-        name: 'heroFile',
-        value: './hero.jpg'
+        name: 'coverFile',
+        value: './cover.jpg'
       });
       createNodeField({
         node,
         name: 'slug',
-        value: `/blog/${path.parse(fileNode.absolutePath).dir.split('___').pop()}/`
+        value: `/blog/${path.parse(fileNode.absolutePath).dir.split('---').pop()}/`
       });
       // Make filesystem source available to MarkdownRemark nodes
       createNodeField({
@@ -27,13 +27,13 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     } else if (source === 'projects') {
       createNodeField({
         node,
-        name: 'heroFile',
-        value: './hero.jpg'
+        name: 'coverFile',
+        value: './cover.jpg'
       });
       createNodeField({
         node,
         name: 'slug',
-        value: `/project/${path.parse(fileNode.absolutePath).dir.split("/").pop()}/`
+        value: `/project/${path.parse(fileNode.absolutePath).dir.split('/').pop()}/`
       });
       createNodeField({
         node,
@@ -46,8 +46,8 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions;
-  const postTemplate = path.resolve('src/templates/post.js');
-  const projectTemplate = path.resolve('src/templates/project.js');
+  const postTemplate = path.resolve('src/templates/Post.jsx');
+  const projectTemplate = path.resolve('src/templates/Project.jsx');
 
   // Blog posts and projects
   return graphql(`

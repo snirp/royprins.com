@@ -5,6 +5,7 @@ date: 2018-12-05
 tags:
   - django
   - python
+  - git
 ---
 The default installation of Django has no provisions for different environments, confidential settings and 
 uses the default SQLite database. It makes no assumptions about source control or virtual environments either.
