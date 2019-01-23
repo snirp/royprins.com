@@ -266,4 +266,4 @@ Following these steps should have solved:
 + Initiate a repository
 + Setting up a virtual environment
 
-There is a [collection of Django starters](https://github.com/snirp/django-starter) you can use, that mirror these steps and additionaly provide custom user models.
+There is a [collection of Django starters](https://github.com/snirp/django-starter) you can use, that mirror these steps and additionaly provides a custom user model wih a choice of authentication methods.
