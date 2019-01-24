@@ -17,7 +17,7 @@ This step deals with the basic project setup. Feel free to skip ahead for packag
 
 Create an empty repository on Github.com, install the Vue CLI (if you haven't already), and initiate your project.
 
-```bash
+```shell
 npm install -g @vue/cli
 vue create my-project
 # use default options
@@ -47,7 +47,7 @@ Publishing a library is closer to bookkeeping than to rocket science. It pays to
 
 Edit your `package.json` to resemble:
 
-```json
+```json:title=package.json
 {
 "name": "my-component",
 "version": "0.1.0",
@@ -128,7 +128,7 @@ Do not get too fancy with lots of content or illustrations. There is value in ha
 
 This is one I kept postponing for my own projects, but turn out to be really convenient and easy. NPM even automatically integrates with Git tags, so you do not have to duplicate efforts or even run the risk of your version numbers getting out of sync.
 
-```bash
+```shell
 # Make sure the working directory is clean
 git add -A
 git commit -m "Changes"
@@ -144,7 +144,7 @@ The npm version command stealthily performs two actions:
 
 Use the following command to confirm that the tag was created and to push all commits, including the annotated tags to your repository.
 
-```bash
+```shell
 git tag
 # v0.1.1
 git push --follow-tags
@@ -154,19 +154,19 @@ git push --follow-tags
 
 To publish on npmjs.com, you need a free npm account. Create it from the command line:
 
-```bash
+```shell
 npm adduser
 ```
 
 Login and verify your email to get set up
 
-```bash
+```shell
 npm login
 ```
 
 Publishing is now easy:
 
-```bash
+```shell
 npm run build:npm
 npm publish
 ```
@@ -177,7 +177,7 @@ What’s more, it is available on a CDN so that it can be included in websites. 
 
 Now all anyone has to do to use your component is:
 
-```bash
+```shell
 npm install my-component
 ```
 
@@ -200,7 +200,7 @@ Things will go right for you if you have configured “files”: [“dist”] in
 
 But having access to the source code is a good thing, right? Yes it is, but there are are better ways, such as setting your "repository" in package.json. The link will be there on [npmjs.com](http://npmjs.com) and you can see it on your own system:
 
-```bash
+```shell
 npm show vue repository
 ```
 

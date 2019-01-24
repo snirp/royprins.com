@@ -1,0 +1,100 @@
+.gatsby-highlight {
+  position: relative;
+}
+
+.gatsby-highlight pre[class*='language-']::before{
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  padding: 3px 10px;
+  font-size: 12px;
+  text-align: center;
+  color: #444;
+  text-transform: uppercase;
+  border-radius: 2px;
+  background: #ddd;
+  text-shadow: none;
+}
+
+.gatsby-highlight pre[class='language-js']::before .gatsby-highlight pre[class='language-javascript']::before {
+  content: 'js';
+  background: #f7df1e;
+}
+
+.gatsby-highlight pre[class='language-jsx']::before {
+  content: 'jsx';
+  background: #61dafb;
+}
+
+.gatsby-highlight pre[class='language-graphql']::before {
+  content: 'GraphQL';
+  background: #E10098;
+  color: #fff;
+  font-weight: 400;
+}
+
+.gatsby-highlight pre[class='language-html']::before {
+  content: 'html';
+  background: #005A9C;
+  color: #fff;
+  font-weight: 400;
+
+}
+
+.gatsby-highlight pre[class='language-css']::before {
+  content: 'css';
+  background: #ff9800;
+  color: #fff;
+  font-weight: 400;
+}
+
+.gatsby-highlight pre[class='language-shell']::before {
+  content: 'shell';
+}
+
+.gatsby-highlight pre[class='language-sh']::before {
+  content: 'sh';
+}
+
+.gatsby-highlight pre[class='language-bash']::before {
+  content: 'bash';
+}
+
+.gatsby-highlight pre[class='language-yaml']::before {
+  content: 'yaml';
+  background: #ffa8df;
+}
+
+.gatsby-highlight pre[class='language-markdown']::before {
+  content: 'md';
+}
+
+.gatsby-highlight pre[class='language-json']::before, .gatsby-highlight pre[class='language-json5']::before {
+  content: 'json';
+  background: linen;
+}
+
+.gatsby-highlight pre[class='language-diff']::before {
+  content: 'diff';
+  background: #e6ffed;
+}
+
+.gatsby-highlight pre[class='language-text']::before {
+  content: 'text';
+  background: #fcfcfc;
+}
+
+.gatsby-highlight pre[class='language-flow']::before {
+  content: 'flow';
+  background: #E8BD36;
+}
+
+.gatsby-highlight pre[class='language-python']::before {
+  content: 'python';
+  background: rgb(106, 218, 111);
+}
+
+.gatsby-highlight pre[class='language-php']::before {
+  content: 'php';
+  background: rgb(212, 133, 186);
+}
