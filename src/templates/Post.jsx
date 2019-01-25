@@ -60,6 +60,19 @@ export default ({ data }) => {
       <a target="_blank" href={'https://github.com/snirp/royprins.com/edit/master'+data.markdownRemark.fileAbsolutePath.split('royprins.com')[1]}>
         edit on github
       </a>
+      <h3>Add a comment</h3>
+      <form
+        method="POST"
+        action="https://dev.staticman.net/v3/entry/github/snirp/royprins.com/master/comments"
+      >
+        <input name="options[redirect]" type="hidden" value="https://my-site.com" />
+        {/* e.g. "2016-01-02-this-is-a-post" */}
+        <input name="options[slug]" type="hidden" value={data.markdownRemark.fields.slug} />
+        <input name="fields[name]" type="text" placeholder="Name" required />
+        <input name="fields[email]" type="email" placeholder="Email" required />
+        <textarea name="fields[message]" placeholder="Comment" required />
+        <button type="submit">Submit Comment</button>
+      </form>
     </Layout>
   );
 };
@@ -73,6 +86,7 @@ export const query = graphql`
         title
       }
       fields {
+        slug
         coverFile {
           childImageSharp {
             sizes(maxWidth: 1400) {
