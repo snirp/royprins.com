@@ -7,7 +7,14 @@ module.exports = {
       resolve: 'gatsby-source-filesystem',
       options: {
         path: `${__dirname}/src/data/libraries`,
-        name: 'yaml'
+        name: 'libraries'
+      }
+    }, 
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/src/data/comments`,
+        name: 'comments'
       }
     },
     {
@@ -16,7 +23,7 @@ module.exports = {
         path: `${__dirname}/src/data/posts`,
         name: 'posts'
       }
-    },
+    }, 
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -33,7 +40,7 @@ module.exports = {
           {
             resolve: 'gatsby-remark-images',
             options: {
-              maxWidth: 590,
+              maxWidth: 960,
             },
           },
           'gatsby-remark-prismjs',

@@ -5,6 +5,7 @@ import styled from '@emotion/styled';
 
 import Layout from '../components/Layout';
 import MarkdownBody from '../components/MarkdownBody';
+import Comments from '../components/Comments';
 
 const GradientHeader = styled.header`
   position: relative;
@@ -61,24 +62,27 @@ export default ({ data }) => {
         edit on github
       </a>
       <h3>Add a comment</h3>
-      <form
-        method="POST"
-        action="https://dev.staticman.net/v3/entry/github/snirp/royprins.com/master/comments"
-      >
-        <input name="options[redirect]" type="hidden" value="https://my-site.com" />
-        {/* e.g. "2016-01-02-this-is-a-post" */}
-        <input name="options[slug]" type="hidden" value={data.markdownRemark.fields.slug} />
-        <input name="fields[name]" type="text" placeholder="Name" required />
-        <input name="fields[email]" type="email" placeholder="Email" required />
-        <textarea name="fields[message]" placeholder="Comment" required />
-        <button type="submit">Submit Comment</button>
-      </form>
+      {data.allCommentsYaml &&
+        <Comments slug={data.markdownRemark.fields.slug} comments={data.allCommentsYaml.edges} />
+      }
     </Layout>
   );
 };
 
 export const query = graphql`
-  query($slug: String!) {
+  query($slug: String!) { 
+  
+    allCommentsYaml(filter: {slug: {eq: $slug}} sort: {fields:[date] order:DESC}){
+      edges{
+        node {
+          id
+          message
+          name
+          date
+        }
+      }
+    }
+
     markdownRemark(fields: { slug: { eq: $slug } }) {
       fileAbsolutePath
       html
@@ -96,5 +100,6 @@ export const query = graphql`
         }
       }
     }
+
   }
 `;

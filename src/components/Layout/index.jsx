@@ -2,7 +2,7 @@ import React from 'React';
 import './style.css';
 
 export default ({ children }) => (
-  <div class="temp">
+  <div className="temp">
     { children }
   </div>
 );

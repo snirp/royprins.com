@@ -1,0 +1,16 @@
+button {
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  background-color: green;
+}
+
+button:disabled{
+  background-color: lightgray;
+  color: gray;
+}
+
+.submitting button {
+  margin: 4rem;
+  padding: 4rem;
+}
