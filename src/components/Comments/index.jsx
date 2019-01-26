@@ -22,20 +22,17 @@ export default class Comments extends React.Component {
   }
 
   seemsValid = () => {
-    // switch(true){
-    //   case this.state.name.length < 2:
-    //     return false
-    //   case !/\S+@\S+\.\S+/.test(this.state.email):
-    //     return false
-    //   case this.state.message.length < 2:
-    //     return false
-    //   default:
-    //     return true
-    // }
-    return true
+    switch(true){
+      case this.state.name.length < 2:
+        return false
+      case !/\S+@\S+\.\S+/.test(this.state.email):
+        return false
+      case this.state.message.length < 2:
+        return false
+      default:
+        return true
+    }
   }
-
-
 
   handleChange = (e) => {
     this.setState({[e.target.name]: e.target.value}, () => {
