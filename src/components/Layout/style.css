@@ -6,3 +6,9 @@ body {
   font-size: 20px;
   color: rgba(0,0,0,0.85)
 }
+
+* {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

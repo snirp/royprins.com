@@ -1,0 +1,50 @@
+button {
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  background-color: green;
+  transition: 0.5s all;
+}
+
+button:disabled{
+  background-color: lightgray;
+  color: gray;
+}
+
+.submitting button {
+  margin: 4rem;
+  padding: 4rem;
+}
+
+input[type=text], input[type=email]{
+  display: block;
+  width: 100%;
+  padding: 0.8rem;
+  border: none;
+}
+
+input[type=text]:focus, input[type=email]:focus {
+  outline: none;
+}
+
+.line {
+  height: 1px;
+  width: 0px;
+  background-color: #02add7;
+  transition: .2s width ease-in-out;
+}
+
+input[type=text]:focus+.line, input[type=email]:focus+.line, textarea:focus+.line {
+  width: 100%
+}
+
+textarea {
+  border: 0;
+  width: 100%;
+  display: block;
+  padding: 0.8rem;
+}
+
+textarea:focus {
+  outline: none;
+}

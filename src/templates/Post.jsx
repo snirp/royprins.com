@@ -7,64 +7,52 @@ import Layout from '../components/Layout';
 import MarkdownBody from '../components/MarkdownBody';
 import Comments from '../components/Comments';
 
-const GradientHeader = styled.header`
-  position: relative;
-  height: 80vh;
-  min-height: 300px;
-  margin-bottom: 6rem;
-  overflow: hidden;
-    &::after {
-      z-index: -1;
-      display: block;
-      position: relative;
-      background-image: linear-gradient(to bottom, transparent 20%, rgba(0,0,0,0.7) 100%);
-      margin-top: -80vh;
-      height: 80vh;
-      width: 100%;
-      content: '';
-    }
+const Main = styled.main`
+  padding-top: 10vh;
+  background-color: white;
 `;
 
-const HeaderContent = styled.div`
+const Cover = styled.div`
+  position: fixed;
+  height: 80vh;
   width: 100%;
-  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+`;
+
+const Header = styled.header`
+  height: 80vh;
+  color: white;
+  background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.5));
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-end;
-  color: white;
-`;
-
-const Title = styled.h1`
-  padding: 0 30px 20px;
-  max-width: 860px;
-  font-weight: 100;
-  text-align: center;
-  font-size: 28px;
+  justify-content: center;
 `;
 
 export default ({ data }) => {
   return (
     <Layout>
-      <GradientHeader>
-        <HeaderContent>
-          <Title>{data.markdownRemark.frontmatter.title}</Title>
-        </HeaderContent>
+      <Cover>
         { data.markdownRemark.fields.coverFile && 
-          <Img 
-            sizes={data.markdownRemark.fields.coverFile.childImageSharp.sizes} 
-            style={{position: 'absolute', height: '100%', width: '100%', zIndex: -2, top: 0, left: 0}} 
-          /> 
+          <Img sizes={data.markdownRemark.fields.coverFile.childImageSharp.sizes} style={{
+            height: '100%',
+            width: '100%',
+            zIndex: -2
+          }} /> 
         }
-      </GradientHeader>
-      <MarkdownBody html={data.markdownRemark.html} />
-      <a target="_blank" href={'https://github.com/snirp/royprins.com/edit/master'+data.markdownRemark.fileAbsolutePath.split('royprins.com')[1]}>
-        edit on github
-      </a>
-      <h3>Add a comment</h3>
-      {data.allCommentsYaml &&
-        <Comments slug={data.markdownRemark.fields.slug} comments={data.allCommentsYaml.edges} />
-      }
+      </Cover>
+      <Header>
+        <p>HOOOI</p>
+      </Header>
+      <Main>
+        <MarkdownBody html={data.markdownRemark.html} />
+        <a target="_blank" href={'https://github.com/snirp/royprins.com/edit/master'+data.markdownRemark.fileAbsolutePath.split('royprins.com')[1]}>
+          edit on github
+        </a>
+        <Comments slug={data.markdownRemark.fields.slug} comments={data.allCommentsYaml} />
+      </Main>
     </Layout>
   );
 };

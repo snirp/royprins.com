@@ -2,7 +2,8 @@ import React from 'react';
 import axios from 'axios';
 
 import Comment from '../Comment';
-import './style.css';
+import Centered from '../Centered';
+import styles from './Comments.module.css';
 
 export default class Comments extends React.Component {
   constructor(props) {
@@ -13,11 +14,7 @@ export default class Comments extends React.Component {
       submitted: false,
       name: '',
       email: '',
-      message: '',
-      submittedComment: {
-        name: '',
-        message: '',
-      }
+      message: ''
     };
   }
 
@@ -63,7 +60,7 @@ export default class Comments extends React.Component {
 
   render() {
     return(
-      <div>
+      <Centered bg="lightgreen">
         { this.state.submitted 
           ?( <Comment name={this.state.name} date={new Date()} message={this.state.message}/> )
           :(
@@ -76,6 +73,7 @@ export default class Comments extends React.Component {
                 value={this.state.name}
                 onChange={this.handleChange}
               />
+              <div className={styles.line} />
               <input 
                 name="email" 
                 type="email" 
@@ -84,19 +82,23 @@ export default class Comments extends React.Component {
                 value={this.state.email}
                 onChange={this.handleChange}
               />
+              <div className={styles.line} />
               <textarea 
                 name="message" 
                 placeholder="Comment" 
                 required 
                 onChange={this.handleChange}
               />
+              <div className={styles.line} />
               <button type="submit" disabled={this.state.disabled}>Submit Comment</button>
             </form>
           )}
-        {this.props.comments.map(({node}) => (
-          <Comment key={node.id} name={node.name} date={new Date(node.date*1000)} message={node.message}/>
-        ))}
-      </div>
+        { this.props.comments && 
+          this.props.comments.edges.map(({node}) => (
+            <Comment key={node.id} name={node.name} date={new Date(node.date*1000)} message={node.message}/>
+          ))
+        }
+      </Centered>
     );
   }
 }
