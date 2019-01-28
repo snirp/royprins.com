@@ -15,6 +15,7 @@ const Main = styled.main`
 const Cover = styled.div`
   position: fixed;
   height: 80vh;
+  min-height: 400px;
   width: 100%;
   top: 0;
   left: 0;
@@ -22,13 +23,16 @@ const Cover = styled.div`
 `;
 
 const Header = styled.header`
-  height: 80vh;
-  color: white;
-  background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.5));
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  height: 15vh;
+  min-height: 100px;
+  background-color: white;
+  margin-top: 0;
+`;
+
+const Spacer = styled.div`
+  height: 60vh;
+  min-height: 300px;
+  background-color: transparent; 
 `;
 
 export default ({ data }) => {
@@ -44,8 +48,9 @@ export default ({ data }) => {
         }
       </Cover>
       <Header>
-        <p>HOOOI</p>
+        HOOOI
       </Header>
+      <Spacer />
       <Main>
         <MarkdownBody html={data.markdownRemark.html} />
         <a target="_blank" href={'https://github.com/snirp/royprins.com/edit/master'+data.markdownRemark.fileAbsolutePath.split('royprins.com')[1]}>

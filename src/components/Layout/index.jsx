@@ -1,8 +1,19 @@
 import React from 'React';
 import './style.css';
+import styled from '@emotion/styled';
 
-export default ({ children }) => (
-  <div className="temp">
-    { children }
+import Menu from '../SideMenu/Menu';
+
+
+export default (props) => (
+  <div>
+    { props.children }
+    <Menu>
+      <ul>
+        <li>hoi</li>
+        <li>dag</li>
+      </ul>
+    </Menu>
   </div>
 );
+

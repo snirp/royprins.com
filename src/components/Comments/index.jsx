@@ -1,9 +1,46 @@
 import React from 'react';
 import axios from 'axios';
+import styled from '@emotion/styled';
 
 import Comment from '../Comment';
 import Centered from '../Centered';
 import styles from './Comments.module.css';
+
+
+const ConditionalInputs = styled.div`
+  transition: max-height 0.8s;
+  overflow: hidden;
+  max-height: ${props => props.message ? '11rem': '0' };
+`;
+
+const SubmitButton = styled.button`
+  border: none;
+  display: block;
+  width: 100%;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 0.8rem;
+  margin: 0.8rem 0;
+  background-color: green;
+  transition: background-color 0.5s;
+  &:disabled {
+    background-color: grey;
+  }
+`;
+
+const inputPartial = `
+  display: block;
+  color: white;
+  font-size: 16px;
+  width: 100%;
+  padding: 0.8rem;
+  margin: 0.6rem 0;
+  border: none;
+  background: rgba(0,0,0,0.05);
+  transition: 0.3s background-color;
+`
+
+const 
 
 export default class Comments extends React.Component {
   constructor(props) {
@@ -60,37 +97,37 @@ export default class Comments extends React.Component {
 
   render() {
     return(
-      <Centered bg="lightgreen">
+      <Centered bg="slategrey" color="white">
         { this.state.submitted 
           ?( <Comment name={this.state.name} date={new Date()} message={this.state.message}/> )
           :(
-            <form onSubmit={this.handleSubmit} className={this.state.submitting ? "submitting" : ""}>
-              <input 
-                name="name" 
-                type="text" 
-                placeholder="Name" 
-                required 
-                value={this.state.name}
-                onChange={this.handleChange}
-              />
-              <div className={styles.line} />
-              <input 
-                name="email" 
-                type="email" 
-                placeholder="Email" 
-                required 
-                value={this.state.email}
-                onChange={this.handleChange}
-              />
-              <div className={styles.line} />
+            <form onSubmit={this.handleSubmit} className={this.state.submitting ? styles.submitting : ""}>
               <textarea 
                 name="message" 
                 placeholder="Comment" 
                 required 
                 onChange={this.handleChange}
               />
-              <div className={styles.line} />
-              <button type="submit" disabled={this.state.disabled}>Submit Comment</button>
+              <ConditionalInputs message={this.state.message}>
+                <input 
+                  name="name" 
+                  type="text" 
+                  placeholder="Name" 
+                  required 
+                  value={this.state.name}
+                  onChange={this.handleChange}
+                />
+                <input 
+                  name="email" 
+                  type="email" 
+                  placeholder="Email" 
+                  required 
+                  value={this.state.email}
+                  onChange={this.handleChange}
+                />
+                <SubmitButton type="submit" disabled={this.state.disabled}>Submit Comment</SubmitButton>
+              </ConditionalInputs>
+              
             </form>
           )}
         { this.props.comments && 

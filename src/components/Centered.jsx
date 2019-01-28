@@ -1,7 +1,8 @@
 import React from 'react';
 
-export default ({children, bg}) => (
+export default ({children, bg, color}) => (
   <div style={{
+    color,
     backgroundColor: bg,
     padding: '20px'
   }}>

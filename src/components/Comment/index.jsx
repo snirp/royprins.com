@@ -25,8 +25,7 @@ function timeDeltaString(date){
 
 export default ({name, date, message}) => (
   <div>
-    <div>{name}</div>
-    <div>{timeDeltaString(date)}</div>
+    <div><strong>{name}</strong> <small>{timeDeltaString(date)}</small></div>
     <div>{message}</div>
   </div>
 );
