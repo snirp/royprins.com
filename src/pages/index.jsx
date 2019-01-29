@@ -5,7 +5,8 @@ import Img from 'gatsby-image';
 
 import Layout from '../components/Layout';
 import Library from '../components/Library';
-import ContactForm from '../components/ContactForm'
+import ContactForm from '../components/ContactForm';
+import Contact from '../components/Contact';
 
 export default ({ data }) => (
   <Layout>
@@ -53,7 +54,8 @@ export default ({ data }) => (
       </ul>
       <a href="#">MORE</a>
     </section>
-    <ContactForm/>
+    {/* <ContactForm/> */}
+    <Contact/>
   </Layout>
 );
 
