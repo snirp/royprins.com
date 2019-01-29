@@ -1,4 +1,26 @@
 import React from 'react';
+import styled from '@emotion/styled'
+
+import logo from '../resources/img/rp.svg';
+
+const Menu = styled.div`
+  position: fixed;
+  top: ${props => props.visible ? "0" : "-55px"};
+  width: 100%;
+  height: 50px;
+  padding: 5px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  color: black;
+  transition: top 0.2s;
+  box-shadow: 0 3px 3px rgba(0,0,0,0.23);
+  z-index: 10;
+  div {
+    margin: 0 10px;
+  }
+`
 
 export default class TopMenu extends React.Component {
   constructor(props){
@@ -30,25 +52,12 @@ export default class TopMenu extends React.Component {
   };
 
   render(){
-    const menuStyle = {
-      position: 'fixed',
-      top: this.state.visible ? '0' : '-60px',
-      width: '100%',
-      height: '50px',
-      backgroundColor: 'white',
-      color: 'black',
-      transition: 'top 0.2s',
-      boxShadow: '0 3px 3px rgba(0,0,0,0.23)',
-      display: 'flex',
-      justifyContent: 'space-between',
-      padding: '5px 20px',
-      zIndex: 10,
-    }
-
     return(
-      <div style={menuStyle}>
+      <Menu visible={this.state.visible}>
+        <div style={{width: '40px'}}><img src={logo} alt="Logo" /></div>
         {this.props.children}
-      </div>
+        <div style={{width: '32px'}} />
+      </Menu>
     );
   }
 }

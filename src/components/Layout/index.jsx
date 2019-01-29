@@ -2,6 +2,7 @@ import React from 'React';
 import './style.css';
 
 import SideMenu from '../SideMenu';
+import { isAbsolute } from 'path';
 
 
 export default (props) => (
@@ -17,19 +18,6 @@ export default (props) => (
         <li>dag</li>
         <li>hoi</li>
         <li>dag</li>
-        <li>hoi</li>
-        <li>dag</li>
-        <li>hoi</li>
-        <li>dag</li>
-        <li>hoi</li>
-        <li>dag</li>
-        <li>hoi</li>
-        <li>dag</li>
-        <li>hoi</li>
-        <li>dag</li>
-        <li>hoi</li>
-        <li>dag</li>
-        <li>hoi</li>
       </ul>
     </SideMenu>
   </div>

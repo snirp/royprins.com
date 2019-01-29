@@ -37,13 +37,26 @@ const Spacer = styled.div`
   background-color: transparent; 
 `;
 
+const MenuTitle = styled.div`
+  font-style: italic;
+  min-width: 0;
+  margin: 0 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  @media (max-width: 500px){
+    display: none;
+  }
+`;
+
 export default ({ data }) => {
   return (
     <Layout>
       <TopMenu>
-        <div>RP</div>
-        <div>{data.markdownRemark.frontmatter.title}</div>
-        <div>tw - li - edit</div>
+        <MenuTitle>{data.markdownRemark.frontmatter.title}</MenuTitle>
+        <div>tw</div>
+        <div>li</div>
+        <div>edit</div>
       </TopMenu>
       <Cover>
         { data.markdownRemark.fields.coverFile && 
