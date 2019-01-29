@@ -30,7 +30,7 @@ export default class Comment extends React.Component {
 
   render() {
     return (
-  <form onSubmit={this.handleSubmit} data-netlify="true" action="/">
+  <form name="contact" onSubmit={this.handleSubmit} data-netlify="true" action="/">
     <p>
       <label>NAME<input type="text" name="name" /></label>   
     </p>
