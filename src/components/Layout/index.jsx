@@ -1,19 +1,36 @@
 import React from 'React';
 import './style.css';
-import styled from '@emotion/styled';
 
-import Menu from '../SideMenu/Menu';
+import SideMenu from '../SideMenu';
 
 
 export default (props) => (
   <div>
     { props.children }
-    <Menu>
+    <SideMenu>
       <ul>
         <li>hoi</li>
         <li>dag</li>
+        <li>hoi</li>
+        <li>dag</li>
+        <li>hoi</li>
+        <li>dag</li>
+        <li>hoi</li>
+        <li>dag</li>
+        <li>hoi</li>
+        <li>dag</li>
+        <li>hoi</li>
+        <li>dag</li>
+        <li>hoi</li>
+        <li>dag</li>
+        <li>hoi</li>
+        <li>dag</li>
+        <li>hoi</li>
+        <li>dag</li>
+        <li>hoi</li>
+        <li>dag</li>
+        <li>hoi</li>
       </ul>
-    </Menu>
+    </SideMenu>
   </div>
 );
-

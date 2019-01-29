@@ -37,11 +37,13 @@ module.exports = {
       options: {
         plugins: [
           'gatsby-remark-unwrap-images',
+          'gatsby-remark-figure-caption',
           'gatsby-remark-code-titles',
           {
             resolve: 'gatsby-remark-images',
             options: {
               maxWidth: 960,
+              linkImagesToOriginal: false,
             },
           },
           'gatsby-remark-prismjs',

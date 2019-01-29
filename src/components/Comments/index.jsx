@@ -40,8 +40,6 @@ const inputPartial = `
   transition: 0.3s background-color;
 `
 
-const 
-
 export default class Comments extends React.Component {
   constructor(props) {
     super(props);

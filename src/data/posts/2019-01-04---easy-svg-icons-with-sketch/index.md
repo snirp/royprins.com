@@ -49,7 +49,7 @@ Change only the following presets:
 
 The prefix will make sure that the icons will be saved to a folder named `icons-dirty`. The name is a reminder that these should not be used directly in a website. Why? Let’s take a look at the output.
 
-![SVG as exported by Sketch](img02.png)*SVG as exported by Sketch*
+![SVG as exported by Sketch](img02.png)
 
 Lot of stuff there that is not strictly needed when using an SVG and even some stuff that will be counter-productive. What are the pixel dimensions doing there? Yuk!
 
@@ -98,7 +98,7 @@ $ svgo -f ./icons-dirty -o ./icons --config=svgo.yml
 
 It is blazing fast and typically compresses the file by more than 50%. Here is the result of the same icon we looked at previously:
 
-![Optimized SVG: only the stuff we need](img03.png)*Optimized SVG: only the stuff we need*
+![Optimized SVG: only the stuff we need](img03.png)
 
 ## 4. Use icons
 

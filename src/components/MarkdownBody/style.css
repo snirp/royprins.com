@@ -1,3 +1,15 @@
+figcaption {
+  text-align: center;
+  margin-top: 1rem;
+  font-style: italic;
+  font-size: 0.9rem;
+  color: rgba(0,0,0,0.7)
+}
+
+figure {
+  margin-bottom: 2rem;
+}
+
 .gatsby-highlight {
   margin-top: 2rem;
 }

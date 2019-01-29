@@ -4,8 +4,10 @@ import Img from 'gatsby-image';
 import styled from '@emotion/styled';
 
 import Layout from '../components/Layout';
+import Centered from '../components/Centered';
 import MarkdownBody from '../components/MarkdownBody';
 import Comments from '../components/Comments';
+import TopMenu from '../components/TopMenu';
 
 const Main = styled.main`
   padding-top: 10vh;
@@ -14,8 +16,8 @@ const Main = styled.main`
 
 const Cover = styled.div`
   position: fixed;
-  height: 80vh;
-  min-height: 400px;
+  height: 90vh;
+  min-height: 600px;
   width: 100%;
   top: 0;
   left: 0;
@@ -23,14 +25,14 @@ const Cover = styled.div`
 `;
 
 const Header = styled.header`
-  height: 15vh;
-  min-height: 100px;
+  height: 20vh;
+  min-height: 150px;
   background-color: white;
   margin-top: 0;
 `;
 
 const Spacer = styled.div`
-  height: 60vh;
+  height: 70vh;
   min-height: 300px;
   background-color: transparent; 
 `;
@@ -38,6 +40,11 @@ const Spacer = styled.div`
 export default ({ data }) => {
   return (
     <Layout>
+      <TopMenu>
+        <div>RP</div>
+        <div>{data.markdownRemark.frontmatter.title}</div>
+        <div>tw - li - edit</div>
+      </TopMenu>
       <Cover>
         { data.markdownRemark.fields.coverFile && 
           <Img sizes={data.markdownRemark.fields.coverFile.childImageSharp.sizes} style={{
@@ -48,7 +55,8 @@ export default ({ data }) => {
         }
       </Cover>
       <Header>
-        HOOOI
+        <Centered>{data.markdownRemark.frontmatter.title}</Centered>
+        
       </Header>
       <Spacer />
       <Main>
