@@ -1,4 +1,4 @@
-import React from 'React';
+import React from 'react';
 import './style.css';
 
 import SideMenu from '../SideMenu';
