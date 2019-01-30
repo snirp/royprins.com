@@ -1,11 +1,9 @@
 import React from 'react';
-import Carousel from 'nuka-carousel';
 import { Link, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 
 import Layout from '../components/Layout';
 import Library from '../components/Library';
-import ContactForm from '../components/ContactForm';
 import Contact from '../components/Contact';
 
 export default ({ data }) => (
@@ -34,11 +32,9 @@ export default ({ data }) => (
     <section id="libaries">
       <h2>Libraries</h2>
       <p>Open source stuff for the general good.</p>
-      {/* <Carousel heightMode="current"> */}
-        {data.libraries.edges.map(({ node }) => (
-          <Library key={node.id} {...node} />
-        ))}
-      {/* </Carousel> */}
+      {data.libraries.edges.map(({ node }) => (
+        <Library key={node.id} {...node} />
+      ))}
     </section>
     
 

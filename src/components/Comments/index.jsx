@@ -28,18 +28,6 @@ const SubmitButton = styled.button`
   }
 `;
 
-const inputPartial = `
-  display: block;
-  color: white;
-  font-size: 16px;
-  width: 100%;
-  padding: 0.8rem;
-  margin: 0.6rem 0;
-  border: none;
-  background: rgba(0,0,0,0.05);
-  transition: 0.3s background-color;
-`
-
 export default class Comments extends React.Component {
   constructor(props) {
     super(props);
@@ -55,14 +43,14 @@ export default class Comments extends React.Component {
 
   seemsValid = () => {
     switch(true){
-      case this.state.name.length < 2:
-        return false
-      case !/\S+@\S+\.\S+/.test(this.state.email):
-        return false
-      case this.state.message.length < 2:
-        return false
-      default:
-        return true
+    case this.state.name.length < 2:
+      return false;
+    case !/\S+@\S+\.\S+/.test(this.state.email):
+      return false;
+    case this.state.message.length < 2:
+      return false;
+    default:
+      return true;
     }
   }
 
@@ -74,7 +62,7 @@ export default class Comments extends React.Component {
   
   handleSubmit = (e) => {
     e.preventDefault();
-    this.setState({submitting: true})
+    this.setState({submitting: true});
     axios.post('https://dev.staticman.net/v3/entry/github/snirp/royprins.com/master/comments', {
       fields: {
         slug: this.props.slug,
@@ -83,14 +71,13 @@ export default class Comments extends React.Component {
         message: this.state.message,
       }
     })
-    .then(res => {
-      this.setState({submitting: false})
-      this.setState({submitted: true})
-    })
-    .catch((error) => {
-      console.log(error);
-      this.setState({submitting: false})
-    });
+      .then(res => {
+        this.setState({submitting: false});
+        this.setState({submitted: true});
+      })
+      .catch((error) => {
+        this.setState({submitting: false});
+      });
   }
 
   render() {
@@ -99,7 +86,7 @@ export default class Comments extends React.Component {
         { this.state.submitted 
           ?( <Comment name={this.state.name} date={new Date()} message={this.state.message}/> )
           :(
-            <form onSubmit={this.handleSubmit} className={this.state.submitting ? styles.submitting : ""}>
+            <form onSubmit={this.handleSubmit} className={this.state.submitting ? styles.submitting : ''}>
               <textarea 
                 name="message" 
                 placeholder="Comment" 

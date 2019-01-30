@@ -3,7 +3,7 @@ import axios from 'axios';
 
 export default class Comment extends React.Component {
   constructor(props){
-    super(props)
+    super(props);
     this.state = {
       submitted: false
     };
@@ -12,21 +12,20 @@ export default class Comment extends React.Component {
   formName = 'contact';
 
   handleSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     const formData = new FormData(e.target);
     formData.append('form-name', this.formName);
     const params = Array.from(formData.entries()).map(entry => 
-      encodeURIComponent(entry[0]) + "=" + encodeURIComponent(entry[1])
+      encodeURIComponent(entry[0]) + '=' + encodeURIComponent(entry[1])
     ).join('&');
     axios.post('/', params)
-    .then(res => {
-      this.setState({submitted: true})
-      // Other stuff here: success message
-    })
-    .catch((error) => {
-      console.log(error);
-      // Error handling here
-    });
+      .then(res => {
+        this.setState({submitted: true});
+        // Other stuff here: success message
+      })
+      .catch((error) => {
+        // Error handling here
+      });
   }
 
   render() {
@@ -37,4 +36,6 @@ export default class Comment extends React.Component {
         <label>message<textarea name="message"></textarea></label>
         <button type="submit">Send</button>
       </form>
-)}};
+    );
+  }
+}
