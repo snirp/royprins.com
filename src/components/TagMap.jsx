@@ -9,7 +9,7 @@ export default class TagMap extends React.Component {
   }
 
   transposeData = (data) => {
-    const steps = 10;
+    const steps = 8;
     const tags = ['react', 'python', 'vuejs', 'javascript'];
     const startDate = new Date(2018, 2, 10);
     const totalDiff = Date.now()-startDate;
@@ -39,16 +39,35 @@ export default class TagMap extends React.Component {
               source: {eq: "posts"}}, 
               frontmatter: {published: {eq: true}
             }}){
-                edges {
-                  node {
-                    frontmatter {
-                      title
-                      tags
-                      date
-                    }
+              edges {
+                node {
+                  frontmatter {
+                    tags
+                    date
                   }
                 }
               }
+            }
+            projects: allMarkdownRemark( filter: {fields: {
+              source: {eq: "projects"}}
+            }){
+              edges {
+                node {
+                  frontmatter {
+                    tags
+                    date
+                  }
+                }
+              }
+            }
+            libraries: allLibrariesYaml{
+              edges{
+                node{
+                  tags
+                  creationDate
+                }
+              }
+            }
           }
         `}
         render={data => (
