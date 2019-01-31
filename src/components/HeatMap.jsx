@@ -1,8 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
 
-
-
 const data = [
   {
     headers: ['Q','React<strong>JS</strong>'],
@@ -108,7 +106,7 @@ const Primary = styled.div`
 `;
 
 const Secondary = styled.div`
-  margin: 12px;
+  margin: ${props => props.itemMargin};
   display: flex;
   flex-direction: ${props => props.vertical ? 'column' : 'row'};
   align-items: center;
@@ -164,7 +162,11 @@ export default class Heatmap extends React.Component{
     return(
       <Primary vertical={p.vertical} className={p.classPrefix+'-primary'}>
         {p.data.map((tag, i) => (
-          <Secondary key={i} vertical={p.vertical} className={p.classPrefix+'-secondary'}>
+          <Secondary 
+            key={i} vertical={p.vertical} 
+            className={p.classPrefix+'-secondary'}
+            itemMargin={p.itemMargin}
+          >
             {tag.headers.map((content,index)=>(
               this.props.dangerousHeaders ? (
                 <Header 
@@ -206,9 +208,10 @@ export default class Heatmap extends React.Component{
   static defaultProps = {
     data: data, 
     vertical: false, 
+    itemMargin: '6px',
     cellWidth: '30px', 
     cellHeight: '30px', 
-    cellMargin: '0', 
+    cellMargin: '0',
     color: 'purple', 
     opacityMode: true,
     opacityRangeStart: 0, // 0 to 1
@@ -217,7 +220,7 @@ export default class Heatmap extends React.Component{
     globalScale: false,
     rounded: false,
     classPrefix: 'heatmap',
-    headerBasis: ['50px', '160px'], // length for equal spacing of name (may esp. be useful when horizontal)
+    headerBasis: ['',], // length for equal spacing of name (may esp. be useful when horizontal)
     dangerousHeaders: true, // Parse html headers
   }
 

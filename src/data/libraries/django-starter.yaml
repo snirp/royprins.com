@@ -5,3 +5,6 @@ description: >
 language: Python
 repository: https://github.com/snirp/django-starter
 documentation: https://github.com/snirp/django-starter#readme
+tags:
+  - django
+  - python

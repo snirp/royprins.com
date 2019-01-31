@@ -8,3 +8,7 @@ language: Javascript
 repository: https://github.com/snirp/vue-polar
 samples: https://snirp.github.io/vue-polar/
 documentation: https://github.com/snirp/vue-polar#readme
+tags:
+  - vuejs
+  - javascript
+  - css

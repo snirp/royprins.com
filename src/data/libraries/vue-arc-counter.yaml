@@ -8,3 +8,6 @@ language: Javascript
 repository: https://github.com/snirp/vue-arc-counter
 samples: https://codepen.io/snirp/pen/BvvoOB
 documentation: https://github.com/snirp/vue-arc-counter#readme
+tags:
+  - vuejs
+  - javascript

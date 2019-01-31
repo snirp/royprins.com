@@ -5,6 +5,7 @@ import Img from 'gatsby-image';
 import Layout from '../components/Layout';
 import Library from '../components/Library';
 import Contact from '../components/Contact';
+import TagMap from '../components/TagMap';
 
 export default ({ data }) => (
   <Layout>
@@ -16,6 +17,8 @@ export default ({ data }) => (
       <h2>About me</h2>
       <p>Lorem ipsum and such</p>
     </section>
+
+    <TagMap data={data}/>
 
     <section id="projects">
       <h2>Projects</h2>
@@ -37,7 +40,6 @@ export default ({ data }) => (
       ))}
     </section>
     
-
     <section id="blog">
       <h2>Blog posts</h2>
       <ul>

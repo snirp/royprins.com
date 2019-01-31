@@ -5,14 +5,15 @@ type: personal
 client:
 testimonial:
 testifier:
+date: 2019-01-16
 live: https://pomoclock.com
 repo: https://github.com/snirp/pomoclock
 sort: 2
-skills:
+tags:
   - javascript
   - vueJS
-  - user experience design
-  - user interface
+  - UX
+  - UI
   - graphic design
 experience:
   - Formulating requirements
