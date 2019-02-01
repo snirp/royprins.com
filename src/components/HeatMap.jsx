@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
 
-const data = [
   {
     headers: ['Q','React<strong>JS</strong>'],
     values: [10,5,3,1,0,0,0,0,2,1],
@@ -169,13 +168,14 @@ export default class Heatmap extends React.Component{
           >
             {tag.headers.map((content,index)=>(
               this.props.dangerousHeaders ? (
-                <Header 
+                <Header
+                  key={index}
                   dangerouslySetInnerHTML={ {__html: content} }
                   className={p.classPrefix+'-header-'+index}
                   flexBasis={p.headerBasis[index]}
                 />
               ) : (
-                <Header className={p.classPrefix+'-header-'+index} flexBasis={p.headerBasis[index]}>{content}</Header>
+                <Header key={index} className={p.classPrefix+'-header-'+index} flexBasis={p.headerBasis[index]}>{content}</Header>
               )
             ))}
             {tag.values.map((val,index)=>(
@@ -220,7 +220,7 @@ export default class Heatmap extends React.Component{
     globalScale: false,
     rounded: false,
     classPrefix: 'heatmap',
-    headerBasis: ['',], // length for equal spacing of name (may esp. be useful when horizontal)
+    headerBasis: ['50px',], // length for equal spacing of name (may esp. be useful when horizontal)
     dangerousHeaders: true, // Parse html headers
   }
 
