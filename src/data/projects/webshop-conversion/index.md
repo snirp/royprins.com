@@ -5,7 +5,7 @@ type: professional
 client: Taalhulp123 B.V.
 testimonial: This is a placeholder for the actual content of the testimonial.
 testifier: Maja
-date: 2019-09-16
+date: 2018-09-16
 live: https://taalhulp123.nl
 repo: 
 sort: 1

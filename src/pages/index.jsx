@@ -46,7 +46,6 @@ export default ({ data }) => (
         {data.posts.edges.map(({ node }) => (
           <li key={node.id}>
             <Link to={node.fields.slug}>{node.frontmatter.title}  — {node.frontmatter.date}</Link>
-            <Img sizes={node.fields.coverFile.childImageSharp.sizes} />
           </li>
         ))}
       </ul>
@@ -88,13 +87,6 @@ export const query = graphql`
           }
           fields {
             slug
-            coverFile {
-              childImageSharp {
-                sizes(maxWidth: 600) {
-                  ...GatsbyImageSharpSizes_tracedSVG
-                }
-              }
-            }
           }
           excerpt
         }

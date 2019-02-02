@@ -1,35 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
 
-export default ({
-  labelsX=['aap', 'noot', 'mies', 'boom'],
-  labelsY=['ma', 'dinsdag', 'wo'],
-  data=[
-    [0,1,0,3],
-    [4,5,1,0],
-    [2,2,2,2],
-  ],
-  opacityMode=true,
-  sizeMode=true,
-  classPrefix='',
-  dangerousLabels=false,
-}) => {
-  const flatArray = data.reduce((acc, cv) => [...acc, ...cv], []);
-  const min = Math.min(...flatArray);
-  const max = Math.max(...flatArray);
-
-  return(
-    <div style={{
-      display: 'grid',
-      gridTemplateColumns: 50px
-
-    }}>
-      <div></div>
-    </div>
-  );
-};
-
-
 const Primary = styled.div`
   display: flex;
   flex-direction: ${props => props.vertical ? 'row' : 'column'};
@@ -70,18 +41,30 @@ const Value = styled.div`
   border-radius: ${props => props.rounded ? '999rem' : 0};
 `;
 
-class Heatmap extends React.Component{
+export default class Heatmap extends React.Component{
   constructor(props){
     super(props);
   }
 
   static defaultProps = {
-    data: [[],],
-    labelsX: [],
-    labelsY: [],
+    data: [], 
+    vertical: false, 
+    itemMargin: '6px',
+    cellWidth: '30px', 
+    cellHeight: '30px',
+    cellMargin: '0',
+    color: 'purple', 
     opacityMode: true,
+    opacityRangeStart: 0, // 0 to 1
     sizeMode: true,
+    sizeRangeStart: 0, // 0 to 100
+    globalScale: false,
+    rounded: false,
     classPrefix: 'heatmap',
+    // Lengths for equal sizing of header
+    // esp. useful when horizontal to prevent jagged chart
+    headerBasis: ['100px',], 
+    // Parse HTML headers - careful for XSS attacks
     dangerousHeaders: false,
   }
 

@@ -7,12 +7,6 @@ import Centered from '../Centered';
 import styles from './Comments.module.css';
 
 
-const ConditionalInputs = styled.div`
-  transition: max-height 0.8s;
-  overflow: hidden;
-  max-height: ${props => props.message ? '11rem': '0' };
-`;
-
 const SubmitButton = styled.button`
   border: none;
   display: block;
@@ -93,25 +87,23 @@ export default class Comments extends React.Component {
                 required 
                 onChange={this.handleChange}
               />
-              <ConditionalInputs message={this.state.message}>
-                <input 
-                  name="name" 
-                  type="text" 
-                  placeholder="Name" 
-                  required 
-                  value={this.state.name}
-                  onChange={this.handleChange}
-                />
-                <input 
-                  name="email" 
-                  type="email" 
-                  placeholder="Email" 
-                  required 
-                  value={this.state.email}
-                  onChange={this.handleChange}
-                />
-                <SubmitButton type="submit" disabled={this.state.disabled}>Submit Comment</SubmitButton>
-              </ConditionalInputs>
+              <input 
+                name="name" 
+                type="text" 
+                placeholder="Name" 
+                required 
+                value={this.state.name}
+                onChange={this.handleChange}
+              />
+              <input 
+                name="email" 
+                type="email" 
+                placeholder="Email" 
+                required 
+                value={this.state.email}
+                onChange={this.handleChange}
+              />
+              <SubmitButton type="submit" disabled={this.state.disabled}>Submit Comment</SubmitButton>
               
             </form>
           )}
