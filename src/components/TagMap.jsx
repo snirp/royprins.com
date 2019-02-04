@@ -167,7 +167,8 @@ export default class TagMap extends React.Component {
         `}
         render={data => (
           <div>
-            <HeatMap 
+            <HeatMap />
+            {/* <HeatMap 
               data={this.transposeData(data)}
               vertical={true}
               sizeMode={false}
@@ -175,7 +176,7 @@ export default class TagMap extends React.Component {
               itemMargin={'16px'}
               headerBasis={['50px','50px']}
               dangerousHeaders={true}
-            />
+            /> */}
           </div>
         )}
       />
