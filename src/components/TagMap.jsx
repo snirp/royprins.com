@@ -167,16 +167,48 @@ export default class TagMap extends React.Component {
         `}
         render={data => (
           <div>
-            <HeatMap />
-            {/* <HeatMap 
-              data={this.transposeData(data)}
-              vertical={true}
-              sizeMode={false}
-              opacityMode={true}
-              itemMargin={'16px'}
-              headerBasis={['50px','50px']}
-              dangerousHeaders={true}
-            /> */}
+            <HeatMap
+              data={{
+                data:[
+                  [null,null,[0.3,20],[0.3,22]],
+                  [[0.2,17],[0.8,15],[0.4,20],[0.6,10]],
+                  [[0.1,11],[0.7,29],[0.3,27],[0.1,43]],
+                ],
+                customMin: [null, 0],
+                valLength: 2,
+              }}
+              namespace={'heatmap-'}
+              xAxis={{
+                labels: ['een', 'twee', 'nummer drie', 'vier']
+              }}
+              yAxis={{
+                labels: ['a', 'beeee', 'c']
+              }}
+              cell={{
+                // content: (val) => String(val[0]),
+                onClick: (e,val) => window.alert(val),
+                customStyle: {
+                  width: '40px',
+                  height: '40px',
+                }
+              }}
+              shape={{  
+                palette: {
+                  dataIndex: 0,
+                  palette: [
+                    {stop: 0, color: '#CAE8B4'},
+                    {stop: 0.5, color: '#208FC6'},
+                    {stop: 1, color: '#FFFFDA'},
+                  ],
+                  gradient: false,
+                },
+                scaling: 1,
+                rounded: true,
+              }}
+              legend={{
+                position: 'top'
+              }}
+            />
           </div>
         )}
       />

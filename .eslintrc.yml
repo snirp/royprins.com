@@ -29,3 +29,4 @@ rules:
   semi:
     - error
     - always
+  react/no-typos: 1
